@@ -1637,7 +1637,7 @@ $$
 &lt;h3 id=&#34;data-sources&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;3. Data sources&lt;/h3&gt;
 &lt;p&gt;The next stage of the project is to identify which data sources are available, where they are located, what information is available for each one, etc. In this case, the data provided by the company is contained in a single comma-separated values text file called &amp;lsquo;hotels.csv&amp;rsquo;.&lt;/p&gt;
 &lt;p&gt;This file directly contains the information of two of the metrics required by the client: the number of bookings and the ADR.&lt;/p&gt;
-&lt;h3 id=&#34;calculations&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;3. Required calculations&lt;/h3&gt;
+&lt;h3 id=&#34;calculation&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;3. Required calculations&lt;/h3&gt;
 &lt;p&gt;In this step the requirements demanded by the customer not directly covered by the information in the data sources are identified and it is determined how to calculate them through the existing information.&lt;/p&gt;
 
 
