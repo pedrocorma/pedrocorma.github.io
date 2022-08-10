@@ -1,3 +1,0 @@
-User-agent: *
-
-Sitemap: https://pedrocorma.github.io/sitemap.xml
