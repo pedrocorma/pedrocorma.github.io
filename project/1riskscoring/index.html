@@ -1,0 +1,1701 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.5.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Pedro Cortés Macías" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Automated the calculation of fees that make each new transaction/customer profitable by implementing a web application that predicts the expected loss based on probability of default, loss given default, and exposure at default models." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://pedrocorma.github.io/project/1riskscoring/" />
+
+  
+  
+  
+    <meta name="theme-color" content="hsl(339, 90%, 68%)" />
+  
+
+  
+  
+    
+    <script src="https://pedrocorma.github.io/js/mathjax-config.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="https://pedrocorma.github.io/css/vendor-bundle.min.c7b8d9abd591ba2253ea42747e3ac3f5.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha512-W0xM4mr6dEP9nREo7Z9z+9X70wytKvMGeDsj7ps2+xg5QPrEBXC8tAW1IFnzjR6eoJ90JmCnFzerQJTLzIEHjA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'" disabled>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'">
+        
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://pedrocorma.github.io/css/wowchemy.37c356469c3e7b7cad46a825ebd2b0b8.css" />
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="https://pedrocorma.github.io/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="https://pedrocorma.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="https://pedrocorma.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="https://pedrocorma.github.io/project/1riskscoring/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  
+  <meta property="og:site_name" content="Pedro Cortés" />
+  <meta property="og:url" content="https://pedrocorma.github.io/project/1riskscoring/" />
+  <meta property="og:title" content="Credit Risk Scoring | Pedro Cortés" />
+  <meta property="og:description" content="Automated the calculation of fees that make each new transaction/customer profitable by implementing a web application that predicts the expected loss based on probability of default, loss given default, and exposure at default models." /><meta property="og:image" content="https://pedrocorma.github.io/project/1riskscoring/featured.jpeg" />
+    <meta property="twitter:image" content="https://pedrocorma.github.io/project/1riskscoring/featured.jpeg" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2022-05-08T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2022-05-08T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pedrocorma.github.io/project/1riskscoring/"
+  },
+  "headline": "Credit Risk Scoring",
+  
+  "image": [
+    "https://pedrocorma.github.io/project/1riskscoring/featured.jpeg"
+  ],
+  
+  "datePublished": "2022-05-08T00:00:00Z",
+  "dateModified": "2022-05-08T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Pedro Cortés Macías"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pedro Cortés",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pedrocorma.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "Automated the calculation of fees that make each new transaction/customer profitable by implementing a web application that predicts the expected loss based on probability of default, loss given default, and exposure at default models."
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>Credit Risk Scoring | Pedro Cortés</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  dark " data-wc-page-id="93b0f6f4c7ae91d913c2f006695fc74a" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="https://pedrocorma.github.io/js/wowchemy-init.min.6a6813e7ed475370e052267c3a688edc.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header--fixed">
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="https://pedrocorma.github.io/">Pedro Cortés</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="https://pedrocorma.github.io/">Pedro Cortés</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="https://pedrocorma.github.io/#projects"><span>Portfolio</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="https://pedrocorma.github.io/#contact"><span>Contact</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article article-project">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1>Credit Risk Scoring</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    May 8, 2022
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header" href="https://03-notebooks03-systemapp-risk-scoring-deploymentapp-ri-cv1jfo.streamlitapp.com/" target="_blank" rel="noopener">
+    <i class="fas fa-paper-plane mr-1"></i>Launch Web App</a>
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header" href="https://github.com/pedrocorma/credit-risk-scoring" target="_blank" rel="noopener">
+    <i class="fab fa-github mr-1"></i>See GitHub repository</a>
+
+
+</div>
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 480px;">
+  <div style="position: relative">
+    <img src="https://pedrocorma.github.io/project/1riskscoring/featured_huf83bca469e08d9ca04e309ef2d2ea8e2_28050_720x2500_fit_q75_h2_lanczos.webp" width="720" height="480" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <h2 id="table-of-contents" style='text-align: left; color: #f76497;'>Table of contents</h2>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#objectives">Objectives</a></li>
+<li><a href="#understanding-the-problem">Understanding the problem</a></li>
+<li><a href="#project-design">Project design</a></li>
+<li><a href="#data-quality">Data quality</a></li>
+<li><a href="#eda">Exploratory data analysis</a></li>
+<li><a href="#feature-transformation">Feature transformation</a></li>
+<li><a href="#modelling">Modelling</a></li>
+<li><a href="#model-deployment">Model deployment - Web app</a></li>
+</ol>
+<br>
+<ul class="cta-group">
+  
+  <li>
+    <a href="https://03-notebooks03-systemapp-risk-scoring-deploymentapp-ri-cv1jfo.streamlitapp.com/" target="_blank" rel="noopener" class="btn btn-primary px-3 py-3">Launch Credit Risk Analyzer Web App!</a>
+  </li>
+  
+  
+</ul>
+
+<div style="text-align: justify; font-size:0.9rem";>
+<p>
+<h2 id="introduction" style='text-align: left; color: #f76497;'>Introduction</h2>
+<hr>
+<p>The client is an online platform which specialises in lending various types of loans to urban customers. Borrowers can easily access lower interest rate loans through a fast online interface.</p>
+<p>When the company receives a loan application, the company has to make a decision for loan approval based on the applicant’s profile. Like most other lending companies, lending loans to &lsquo;risky&rsquo; applicants is the largest source of financial loss. The company aims to identify such &lsquo;risky&rsquo; applicants and their associated loan’s expected loss in order to utilise this knowledge for managing its economic capital, portfolio and risk assessment.</p>
+<br>
+<p><em>Notes:</em></p>
+<ul>
+<li>This article presents an overview of the development process followed in the project.</li>
+<li>Source code can be found <a href="https://github.com/pedrocorma/credit-risk-scoring" target="_blank" rel="noopener">here</a>.</li>
+<li>Feel free to test the developed credit risk analyzer web application <a href="https://03-notebooks03-systemapp-risk-scoring-deploymentapp-ri-cv1jfo.streamlitapp.com/" target="_blank" rel="noopener">here</a>.</li>
+</ul>
+<h2 id="objectives" style='text-align: left; color: #f76497;'>Objectives</h2>
+<hr>
+<p>Creating an advanced analytical asset based on machine learning predictive models to estimate the expected financial loss of each new customer-loan binomial.</p>
+<h2 id="understanding-the-problem" style='text-align: left; color: #f76497;'>Understanding the problem</h2>
+<hr>
+<p>Credit risk is associated with the possibility of a client failing to meet contractual obligations, such as mortgages, credit card debts, and other types of loans.</p>
+<p>Minimizing the risk of default is a major concern for financial institutions. For this reason, commercial and investment banks, venture capital funds, asset management companies and insurance firms are increasingly relying on technology to predict which clients are more prone to stop honoring their debts. Accounting for credit risk in the entire portfolio of instruments must consider the likelihood of future impairment and is commonly measured through expected loss and lifetime expected credit loss. To comply with IFRS 9 or CECL, risk managers need to calculate the expected credit loss on the portfolio of financial instruments over the lifetime of the portfolio.</p>
+<p>Machine Learning models have been helping these companies to improve the accuracy of their credit risk analysis, providing a scientific method to identify potential debtors in advance.</p>
+<h2 id="project-design" style='text-align: left; color: #f76497;'>Project design</h2>
+<hr>
+<h3 id="methodology" style='text-align: left; color: #f76497; font-weight: normal;'>Methodology</h3>
+In order to estimate the expected loss (EL) associated to a certain loan application, three essential risk parameters have been considered:
+<ul>
+<li><text id="pd" style='text-align: left; color: #f76497; font-weight: normal;'>Probability of default (PD):</text> is a measure of credit rating that is assigned internally to each customer with the aim of estimating the probability that a given customer will default.</li>
+<li><text id="pd" style='text-align: left; color: #f76497; font-weight: normal;'>Loss given default (LGD):</text> is another of the key metrics used in quantitative risk analysis. It is defined as the percentage risk of exposure that is not expected to be recovered in the event of default.</li>
+<li><text id="pd" style='text-align: left; color: #f76497; font-weight: normal;'>Exposure at default (EAD):</text> is defined as the percentage of outstanding debt at the time of default.</li>
+</ul>
+<p>Three predictive machine learning models will be developed to estimate these risk parameters, and their predictions will be combined to estimate the expected loss of each loan transaction as follows:</p>
+<p>
+$$
+EL\,(\$) = PD (\%) \cdot P (\$) \cdot EAD (\%) \cdot LGD (\%)
+$$
+
+where P is the loan principal (the amount of money the borrower wishes to apply for).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-3models">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="EL estimation by combining predictive machine learning models for PD, EAD and LGD." srcset="
+               /project/1riskscoring/3models_hu3b0e3bc874e2e1ac0eb03df73e56d955_164736_d67f3d7b3b2587889aeee6a90b229e74.webp 400w,
+               /project/1riskscoring/3models_hu3b0e3bc874e2e1ac0eb03df73e56d955_164736_e115f3f52dea9d78aa9f823e17df5003.webp 760w,
+               /project/1riskscoring/3models_hu3b0e3bc874e2e1ac0eb03df73e56d955_164736_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/1riskscoring/3models_hu3b0e3bc874e2e1ac0eb03df73e56d955_164736_d67f3d7b3b2587889aeee6a90b229e74.webp"
+               width="760"
+               height="473"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      EL estimation by combining predictive machine learning models for PD, EAD and LGD.
+    </figcaption></figure>
+<p>Note that the model for estimating the probability of default will be developed using a logistic regression algorithm. &lsquo;Black box algorithms&rsquo; are not suitable in regulated financial services as their lack of interpretability and auditability could become a macro-level risk and in some cases, the law itself may dictate a degree of explainability. To overcome this problem, a highly explainable AI model, such as logistic regression, which provide details or reasons to make the functioning of AI clear or easy to understand, will be applied.</p>
+<p>For the case of the exposure at default and loss given default models, different combinations of algorithms (Ridge, Lasso, LightGBM&hellip;) and hyperparameters have been tested to find those with the best performance. LightGBM algorithm  was finally choosen in both cases.</p>
+<h3 id="entities-and-data" style='text-align: left; color: #f76497; font-weight: normal;'>Entities and data</h3>
+<p>The data under analysis is available at <a href="https://www.lendingclub.com/" target="_blank" rel="noopener">Lending Club website</a> and contains information collected by the company regarding two main entities:</p>
+<ol>
+<li>
+<p><text id="borrowers" style='text-align: left; color: #f76497; font-weight: normal;'>Borrowers:</text> There are features in the dataset capturing information on the applicant profile, i.e. applicant employment history, number of mortgages and credit lines, annual incomes and other personal information.</p>
+</li>
+<li>
+<p><text id="loan" style='text-align: left; color: #f76497; font-weight: normal;'>Loans:</text> The rest of the features provide information on the loan such as loan amount, loan interest rate, loan status (i.e. whether the loan is current or in default), loan tenor (either 36 or 60 months) between others.</p>
+</li>
+</ol>
+<h2 id="data-quality" style='text-align: left; color: #f76497;'>Data quality</h2>
+<hr>
+<p>In this stage of the project, general data quality correction processes have been applied, such as:</p>
+<ul>
+<li>Feature renaming</li>
+<li>Feature type correction</li>
+<li>Elimination of features with unique values</li>
+<li>Nulls imputation</li>
+<li>Outliers management</li>
+</ul>
+<p>The entire process can be consulted in detail <a href="https://github.com/pedrocorma/credit-risk-scoring/blob/main/03_Notebooks/02_Development/02_Data%20Quality.ipynb" target="_blank" rel="noopener">here</a>.</p>
+<h2 id="eda" style='text-align: left; color: #f76497;'>Exploratory data analysis</h2>
+<hr>
+<p>The aim of this stage of the project is to discover trends, patterns, and to check assumptions with the help of statistical summary and graphical representations. Complete analysis can be found <a href="https://github.com/pedrocorma/credit-risk-scoring/blob/main/03_Notebooks/02_Development/03_EDA.ipynb" target="_blank" rel="noopener">here</a>.</p>
+<p>In order to guide the process, a series of seed questions were posed to serve as a basis for developing and deepening the analysis of the different features.</p>
+<h3 id="seed_questions" style='text-align: left; color: #f76497; font-weight: normal;'>Seed questions</h3>
+<p><strong>Regarding Borrowers:</strong></p>
+<ul>
+<li>
+<p><text id="q1" style='text-align: left; color: #f76497; font-weight: normal;'>Q1:</text> What are the most frequent professions of clients applying for loans?</p>
+</li>
+<li>
+<p><text id="q2" style='text-align: left; color: #f76497; font-weight: normal;'>Q2:</text> How is the score feature assigned by the company to each applicant performing?</p>
+</li>
+<li>
+<p><text id="q3" style='text-align: left; color: #f76497; font-weight: normal;'>Q3:</text> Can different customer behaviour profiles be distinguished with regard to the way they use their credit cards?</p>
+</li>
+</ul>
+<p><strong>Regarding Loans</strong>:</p>
+<ul>
+<li>
+<p><text id="q4" style='text-align: left; color: #f76497; font-weight: normal;'>Q4:</text> Regarding the percentage of late payments and carged-offs, are there differences between 36 and 60 month loans?</p>
+</li>
+<li>
+<p><text id="q5" style='text-align: left; color: #f76497; font-weight: normal;'>Q5:</text> Can specific loan purposes be identified as more likely to default than others?</p>
+</li>
+</ul>
+<p>Some of the analyses carried out in this data exploration phase are shown below.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-eda_categorical">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Example of the analysis of some of the categorical features present in the dataset." srcset="
+               /project/1riskscoring/eda_categorical1_hu41d11ac6eeb58e4956db599729c8b7cf_85293_dc6550207549dff3f166c1a31368f2f2.webp 400w,
+               /project/1riskscoring/eda_categorical1_hu41d11ac6eeb58e4956db599729c8b7cf_85293_5c6bb8432f05eca0f827d7b60365579e.webp 760w,
+               /project/1riskscoring/eda_categorical1_hu41d11ac6eeb58e4956db599729c8b7cf_85293_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/1riskscoring/eda_categorical1_hu41d11ac6eeb58e4956db599729c8b7cf_85293_dc6550207549dff3f166c1a31368f2f2.webp"
+               width="760"
+               height="384"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Example of the analysis of some of the categorical features present in the dataset.
+    </figcaption></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-eda_topjobs">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="The most 15 employments aforded a loan." srcset="
+               /project/1riskscoring/eda_topjobs_hud9a277cc8d1c3f6a7a912f31978ae371_39369_697d17a3e98e45d81d9fbf11f049d6c9.webp 400w,
+               /project/1riskscoring/eda_topjobs_hud9a277cc8d1c3f6a7a912f31978ae371_39369_0a541dcb6b2175dc1dd9c1adc3b6ce0d.webp 760w,
+               /project/1riskscoring/eda_topjobs_hud9a277cc8d1c3f6a7a912f31978ae371_39369_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/1riskscoring/eda_topjobs_hud9a277cc8d1c3f6a7a912f31978ae371_39369_697d17a3e98e45d81d9fbf11f049d6c9.webp"
+               width="760"
+               height="383"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      The most 15 employments aforded a loan.
+    </figcaption></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-eda_numerical">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Example of the analysis of some of the numerical features present in the dataset." srcset="
+               /project/1riskscoring/eda_numerical_hu35dc77470ce96a66089262f8d4d8ccc8_230355_97999403e1662dcde2b870fe45d474cb.webp 400w,
+               /project/1riskscoring/eda_numerical_hu35dc77470ce96a66089262f8d4d8ccc8_230355_d82977285833f76d66d4055a0ea29254.webp 760w,
+               /project/1riskscoring/eda_numerical_hu35dc77470ce96a66089262f8d4d8ccc8_230355_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/1riskscoring/eda_numerical_hu35dc77470ce96a66089262f8d4d8ccc8_230355_97999403e1662dcde2b870fe45d474cb.webp"
+               width="760"
+               height="548"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Example of the analysis of some of the numerical features present in the dataset.
+    </figcaption></figure>
+<h3 id="eda_insights" style='text-align: left; color: #f76497; font-weight: normal;'>Insights</h3>
+<p><strong>Borrowers:</strong></p>
+<ul>
+<li>Borrowers with poorer credit scores tend to borrow larger amounts and have lower annual incomes than clients with higher credit scores, thus paying higher monthly installments and higher interest rates.</li>
+<li>One third of all customers have been employed for more than 10 years. The job title of most clients is unknown. Of the clients who do provide this information, the top three most frequent jobs are &lsquo;Teacher&rsquo;, &lsquo;Manager&rsquo; and &lsquo;Owner&rsquo;.</li>
+<li>The score feature appears to be predictive of loan status: the percentage of loans charged off increases as the borrower&rsquo;s credit score worsens while the percentage of fully paid loans increases as the borrower&rsquo;s credit score increases.</li>
+<li>Three main groups can be clearly distinguished: those borrowers who used less than 20% of the credit available on their credit card, another group of borrowers have used between 20 and 80 percent of the available credit on their credit card, and a last group of borrower who have used more than 80% of their available credit on their credit card.</li>
+</ul>
+<p><strong>Loans:</strong></p>
+<ul>
+<li>In general, 60-month loans tend to have a higher percentage of late payments and charge-offs.</li>
+<li>The percentage of loans charged off for &lsquo;moving&rsquo; and &lsquo;small business&rsquo; purposes is slightly higher (16%-17%) than the average for the rest of loan purposes (around 11%).</li>
+</ul>
+<h2 id="feature-transformation" style='text-align: left; color: #f76497;'>Feature transformation</h2>
+<hr>
+<p>At this stage of the project, different feature transformation techniques will be applied to adapt them to the requirements of the algorithms that will be used during the modelling phase. Detailed process can be found <a href="https://github.com/pedrocorma/credit-risk-scoring/blob/main/03_Notebooks/02_Development/04_Feature%20Transformation.ipynb" target="_blank" rel="noopener">here</a>.</p>
+<p>As discussed prevously, three different models will be developed:</p>
+<ul>
+<li>PD: Probability of default model.</li>
+<li>EAD: Exposure at default model.</li>
+<li>LGD: Loss given default model.</li>
+</ul>
+<p>In all cases, categorical features have to be transformed into numerical features. Ordinal encoding, one hot encoding and target encoding techniques will be employed for this purpose. Note that as target encoding process is target-dependent, 3 different transformations must be carried out, one for each of the models to be developed.</p>
+<p>Regarding continuous features, given that PD model will be implemented using a logistic regression algorithm (as discussed in previous stages of the project), Gaussian normalisation processes will be applied.</p>
+<p>Finally, feature rescaling processes will be applied to transform all features in the dataset to a shared 0-1 scale.</p>
+<h3 id="targets" style='text-align: left; color: #f76497; font-weight: normal;'>Defining and creating targets</h3>
+The second major objective of this section is the definition and creation of the target for each of the models to be developed.
+<br>
+</br>
+<text id="pd" style='text-align: left; color: #f76497; font-weight: normal;'>Probability of default (PD):</text>
+<p>The purpose of this model will be to predict the probability that a given customer will default. In the context of this project, a default will be defined as any delay in the payment of loan installments of more than 90 days.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-pdtarget">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Value count of loan status categories." srcset="
+               /project/1riskscoring/pdtarget_hu1fa0e3af518cdf839e7052b797fe592d_13449_04dd7f379ef5da60d4c09435b9073d71.webp 400w,
+               /project/1riskscoring/pdtarget_hu1fa0e3af518cdf839e7052b797fe592d_13449_70e18ecbcd0b2280b71165460017fe4d.webp 760w,
+               /project/1riskscoring/pdtarget_hu1fa0e3af518cdf839e7052b797fe592d_13449_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/1riskscoring/pdtarget_hu1fa0e3af518cdf839e7052b797fe592d_13449_04dd7f379ef5da60d4c09435b9073d71.webp"
+               width="760"
+               height="165"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Value count of loan status categories.
+    </figcaption></figure>
+<p>During the exploratory data analysis phase, it was found that &lsquo;Charged off&rsquo; and &lsquo;Does not meet the credit policy. Status:Charged Off&rsquo; loan status categories had to be considered as default as certain amounts had been recovered in them. Obviously, &lsquo;Default&rsquo; category should also be considered as default. By other hand, &lsquo;Current&rsquo;, &lsquo;Fully Paid&rsquo;, &lsquo;In Grace Period&rsquo; and &lsquo;Does not meet the credit policy. Status:Fully Paid&rsquo; categoires will clearly not be considered as non-payments.</p>
+<p>Regarding &lsquo;Late (31-120 days)&rsquo; category and due to the selected criterion of considering &gt;90 days = default, a decision should be made whether to include this category as default or not. Given that no additional information is available, it has been decided not to consider this category as default as 66% of its range is below 90 days</p>
+<p>Taking into account all of the above, a binary target is created, where class 1 indicates the cases considered as default.</p>
+<p><text id="lgd" style='text-align: left; color: #f76497; font-weight: normal;'>Loss given default (LGD):</text></p>
+<p>The objective of this model is to predict the percentage of the loan that a given borrower has not yet repaid when a default occurs. The target for this model can thus be defined as:</p>
+
+$$
+\text{target}_{\text{ead}} = \dfrac{\text{Amount to be paid}}{\text{Loan amount}} = \dfrac{\text{Loan amount} - \text{Amortised amount}}{\text{Loan amount}}
+$$
+
+<p><text id="ead" style='text-align: left; color: #f76497; font-weight: normal;'>Exposure at default (EAD):</text></p>
+<p>The objective of this model is to predict the percentage of the principal that will not be possible to recover from a loan that has been defaulted on. Therefore, the target for this model will be defined as:</p>
+
+$$
+\text{target}_{\text{lgd}} =
+    \begin{cases}
+      \dfrac{\text{Recovered amount}}{\text{Amount to be paid}} & if \, \text{Amount to be paid} > 1  \\
+      0 & if \, \text{Amount to be paid} = 0
+    \end{cases}
+$$
+
+<h2 id="modelling" style='text-align: left; color: #f76497;'>Modelling</h2>
+<hr>
+<h3 id="pdmodel" style='text-align: left; color: #f76497; font-weight: normal;'>Probability of default model (PD)</h3>
+<p>As discussed in the design stage of the project, probability of default (PD) model will be based on the logistic regression algorithm. This stage aims to find the optimal combination of hyperparameters for this algorithm arquitecture.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-correlationspd">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="PD model: Feature correlations." srcset="
+               /project/1riskscoring/correlationspd_hue56e4ba0e801336709abc91c9ed7eff4_38273_caec5243b25ffa27372bff6a89da3672.webp 400w,
+               /project/1riskscoring/correlationspd_hue56e4ba0e801336709abc91c9ed7eff4_38273_afdddcd1c3a1b8c5ebefaa3330676aa8.webp 760w,
+               /project/1riskscoring/correlationspd_hue56e4ba0e801336709abc91c9ed7eff4_38273_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/1riskscoring/correlationspd_hue56e4ba0e801336709abc91c9ed7eff4_38273_caec5243b25ffa27372bff6a89da3672.webp"
+               width="760"
+               height="583"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      PD model: Feature correlations.
+    </figcaption></figure>
+<p>As already detected during the exploratory analysis phase, there is a high correlation between scoring and interest_rate features, as well as between loan amount and the monthly installments. After an iterative modelling process, it is found that the scoring and loan_amount features are more predictive than interest_rate and installment, so only the first two will be used in order to avoid these high correlations.</p>
+<p>The remaining correlations are mainly due to the one hot encoding process. Lasso-regularised algorithm settings will preferably be selected to mitigate these effects.</p>
+<p>Once the hyperparameter optimisation process has been carried out, in which different penalty strengths and strategies have been tested (l1, l2, elasticnet, none), it is found that the best parameterisation corresponds to a <text id="lasso" style='text-align: left; color: #f76497; font-weight: normal;'>logistic regression with lasso regularisation</text>, which obtains an ROC-AUC value of 0.7 on the test data.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-auc_pd">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="PD model: ROC curve." srcset="
+               /project/1riskscoring/auc_pd_hu64a32dfcf16d9fcf65b354ebc41b7054_28274_71d81e3222e271fdfdc7aa15efdf031d.webp 400w,
+               /project/1riskscoring/auc_pd_hu64a32dfcf16d9fcf65b354ebc41b7054_28274_e6e74255c80f2b6f8484b39e7327668f.webp 760w,
+               /project/1riskscoring/auc_pd_hu64a32dfcf16d9fcf65b354ebc41b7054_28274_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/1riskscoring/auc_pd_hu64a32dfcf16d9fcf65b354ebc41b7054_28274_71d81e3222e271fdfdc7aa15efdf031d.webp"
+               width="506"
+               height="361"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      PD model: ROC curve.
+    </figcaption></figure>
+<p>On the other hand, through the coefficient analysis of the trained logistic regression model, it is observed that the features that most strongly determine the customer&rsquo;s probability of default are the customer&rsquo;s credit score, employment, number of credit lines and annual income.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-feature_importances_pd">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="PD model: Feature importances." srcset="
+               /project/1riskscoring/feature_importances_pd_hu57c70ed29f2d132f89ae567b134661ec_78476_703a9293d7484652b3aa7af190092356.webp 400w,
+               /project/1riskscoring/feature_importances_pd_hu57c70ed29f2d132f89ae567b134661ec_78476_d70ee16448e36d2fbb3f4f44100a1d03.webp 760w,
+               /project/1riskscoring/feature_importances_pd_hu57c70ed29f2d132f89ae567b134661ec_78476_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/1riskscoring/feature_importances_pd_hu57c70ed29f2d132f89ae567b134661ec_78476_703a9293d7484652b3aa7af190092356.webp"
+               width="760"
+               height="381"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      PD model: Feature importances.
+    </figcaption></figure>
+<p>Note: complete development process of the PD model can be consulted <a href="https://github.com/pedrocorma/credit-risk-scoring/blob/main/03_Notebooks/02_Development/05_Supervised%20Classification%20Modelling%20PD.ipynb" target="_blank" rel="noopener">here</a>.</p>
+<h3 id="lgdmodel" style='text-align: left; color: #f76497; font-weight: normal;'>Loss given default model (LGD)</h3>
+<p>At this stage different combinations of algorithms (Ridge, Lasso, LightGBM) and hyperparameters have been tested to find those with the best performance. It is found that <text id="lasso" style='text-align: left; color: #f76497; font-weight: normal;'>LightGBM</text> architecture is the one that is performing best.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-correlationslgd">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="LGD model: Correlation between model predictions and actual values." srcset="
+               /project/1riskscoring/correlationslgd_huc2051ece34ec6f433edecd212ffc4915_100731_5bd82ad4891df16e0d73e79693dcff80.webp 400w,
+               /project/1riskscoring/correlationslgd_huc2051ece34ec6f433edecd212ffc4915_100731_6f4a4f94835becd0997c7b9f8a02bbcc.webp 760w,
+               /project/1riskscoring/correlationslgd_huc2051ece34ec6f433edecd212ffc4915_100731_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/1riskscoring/correlationslgd_huc2051ece34ec6f433edecd212ffc4915_100731_5bd82ad4891df16e0d73e79693dcff80.webp"
+               width="760"
+               height="270"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      LGD model: Correlation between model predictions and actual values.
+    </figcaption></figure>
+<p>As can be seen, the error made by the model in predicting the level of not amortised loan when default occurs is high. Nevertheless, it should be noted that errors in this type of risk acquisition models are generally significantly higher than those in behavioural models, marketing, customer management, etc., as much less customer information is available when running the model.</p>
+<p>In the same vein, it should also be noted that both defaulting and non-defaulting borrowers are being modelled, as this information is not available for a new customer. Therefore, on many occasions the model will be trying to predict the exposure at default of borrowers who are unlikely to default, which also explains the level of errors obtained in the modelling.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-densitylgd">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="LGD model: Checking the similarity between the density function of the model predictions and the actual value of the target." srcset="
+               /project/1riskscoring/densitylgd_hu308bd7f0046d97e0e33164782a8dd4e9_19233_bc60978c8ba2c5564b153e0651f0a1d7.webp 400w,
+               /project/1riskscoring/densitylgd_hu308bd7f0046d97e0e33164782a8dd4e9_19233_c7f32e8188f5c64b05450c54a2a538ab.webp 760w,
+               /project/1riskscoring/densitylgd_hu308bd7f0046d97e0e33164782a8dd4e9_19233_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/1riskscoring/densitylgd_hu308bd7f0046d97e0e33164782a8dd4e9_19233_bc60978c8ba2c5564b153e0651f0a1d7.webp"
+               width="599"
+               height="303"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      LGD model: Checking the similarity between the density function of the model predictions and the actual value of the target.
+    </figcaption></figure>
+<p>It can be seen that in reality (ead_true) three large groups can be distinguished, a majority group of borrowers whose exposure to default is zero, a second group with intermediate exposures (0.25-0.75), and a last group where all those borrowers with greater exposure to default are concentrated.</p>
+<p>Model&rsquo;s predictions tend towards intermediate default exposures, which leads to larger errors in predicting those borrowers with very low or very high actual default exposures.</p>
+<ul>
+<li>For customers who will actually have very limited exposures at default: the model predicts that they will have some degree at exposure to default, which will lead to somewhat higher fees/interest being charged than they would be entitled to.</li>
+<li>For customers with high actual default exposures: the model will tend to predict lower than actual default exposures, so that lower fees/interest will be applied than would be the case.</li>
+</ul>
+<p>However, at an aggregate level from a business point of view the performance of the model is quite acceptable, as it will be covering the part of fees/interest not collected from borrowers who end up having high exposure defaults with the additional surcharges/interest charged to those customers who eventually did not have defaults, thus covering the aggregate risk of the client portfolio.</p>
+<p>Note: complete development process of the LGD model can be consulted <a href="https://github.com/pedrocorma/credit-risk-scoring/blob/main/03_Notebooks/02_Development/07_Supervised%20Regression%20Modelling%20LGD.ipynb" target="_blank" rel="noopener">here</a>.</p>
+<h3 id="eadmodel" style='text-align: left; color: #f76497; font-weight: normal;'>Exposure at default model (EAD)</h3>
+<p>Similar to the process carried out in the LGD model, different parametrisations of Ridge, Lasso and LightGBM algorithms have been tested, and again <text id="lasso" style='text-align: left; color: #f76497; font-weight: normal;'>LightGBM</text> architecture provides the best results.</p>
+<p>The error of this model is relatively high, which is explained for the same reasons exposed previously (as it is also a risk acquisition model with limited features available to make predictions).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-correlationsead">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="EAD model: Correlation between model predictions and actual values." srcset="
+               /project/1riskscoring/correlationsead_hud373c96bfb8abeaf5062bef1eade60d5_4262_7da405f61f1a585e95805073412fbe55.webp 400w,
+               /project/1riskscoring/correlationsead_hud373c96bfb8abeaf5062bef1eade60d5_4262_a2bd5988a49eb7a7d9b3bdec50af92e2.webp 760w,
+               /project/1riskscoring/correlationsead_hud373c96bfb8abeaf5062bef1eade60d5_4262_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/1riskscoring/correlationsead_hud373c96bfb8abeaf5062bef1eade60d5_4262_7da405f61f1a585e95805073412fbe55.webp"
+               width="251"
+               height="105"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      EAD model: Correlation between model predictions and actual values.
+    </figcaption></figure>
+<p>It can be seen that in reality (lgd_true) two large groups can be distinguished: a group of loans in which no amount is recovered, either because the borrower has not defaulted or because the borrower has defaulted but the bank has not been able to recover any amount; and a second group of loans in which it has been possible to recover the full amount, either because the borrower has amortised the entire loan or because it has been possible to recover the full amount a defaulted loan.</p>
+<p>Model&rsquo;s predictions tend towards intermediate loss levels, which leads to larger errors in predicting fully recovered or lost loans.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-densityead">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="EAD model: Checking the similarity between the density function of the model predictions and the actual value of the target." srcset="
+               /project/1riskscoring/densityead_hu574b1d95b725ef24ae5055fcd35e68d0_23044_0cddee2b17e8ff6eff75e27c33825bb5.webp 400w,
+               /project/1riskscoring/densityead_hu574b1d95b725ef24ae5055fcd35e68d0_23044_4cc6526bc47d7a9deb7dee6dd2b839a7.webp 760w,
+               /project/1riskscoring/densityead_hu574b1d95b725ef24ae5055fcd35e68d0_23044_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/1riskscoring/densityead_hu574b1d95b725ef24ae5055fcd35e68d0_23044_0cddee2b17e8ff6eff75e27c33825bb5.webp"
+               width="609"
+               height="303"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      EAD model: Checking the similarity between the density function of the model predictions and the actual value of the target.
+    </figcaption></figure>
+<p>However, as presented for LGD model, the performance of the EAD model is acceptable at an aggregate level from a business point of view, as it will be covering the lost amount of loans in which the amount borrowed has been completely lost by predicting to most customers a loss level of between 25% and 75% even those who ultimately fully paid their loans, thus covering the aggregate risk of the client portfolio.</p>
+<p>Note: complete development process of the EAD model can be consulted <a href="https://github.com/pedrocorma/credit-risk-scoring/blob/main/03_Notebooks/02_Development/06_Supervised%20Regression%20Modelling%20EAD.ipynb" target="_blank" rel="noopener">here</a>.</p>
+<h3 id="elmodel" style='text-align: left; color: #f76497; font-weight: normal;'>Final Expected Loss model (EL)</h3>
+<p>Once the probability of default, exposure at default and loss given default models have been developed, the expected loss (EL) for each new loan application is obtained by simply combining the predictions of these models and the principal amount of the loan as discussed in the methodology section.</p>
+
+$$
+EL\,(\$) = PD (\%) \cdot P (\$) \cdot EAD (\%) \cdot LGD (\%)
+$$
+
+<h2 id="model-deployment" style='text-align: left; color: #f76497;'><a href="https://github.com/pedrocorma/lead-scoring-and-segmentation">Model deployment - Web app</a></h2>
+<hr>
+<p>In order to get the most value out of the developed machine learning models, it is important to seamlessly deploy it into production so employees can start using them to make practical decisions.</p>
+<p>To this end, a prototype web application has been designed. This web app collects, on the one hand, the internal data that the company has for each client and on the other hand, the information provided by the borrower itself through a loan application.</p>
+<br>
+</br>
+<ul class="cta-group">
+  
+  <li>
+    <a href="https://03-notebooks03-systemapp-risk-scoring-deploymentapp-ri-cv1jfo.streamlitapp.com/" target="_blank" rel="noopener" class="btn btn-primary px-3 py-3">Launch Credit Risk Analyzer Web App!</a>
+  </li>
+  
+  
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-webapp1">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Credit risk analyzer web app: data introduction." srcset="
+               /project/1riskscoring/webapp1_hucfd788f871ec67fd065f58e7e0a4b760_275885_8c3cc1acb2c65d35676d9ccc7de10e37.webp 400w,
+               /project/1riskscoring/webapp1_hucfd788f871ec67fd065f58e7e0a4b760_275885_4fa2f27f3bdcdc66a00ff92aa24f5146.webp 760w,
+               /project/1riskscoring/webapp1_hucfd788f871ec67fd065f58e7e0a4b760_275885_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/1riskscoring/webapp1_hucfd788f871ec67fd065f58e7e0a4b760_275885_8c3cc1acb2c65d35676d9ccc7de10e37.webp"
+               width="760"
+               height="404"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Credit risk analyzer web app: data introduction.
+    </figcaption></figure>
+<p>Once the data has been entered, by clicking on “CALCULATE RISK” button, the application will run the machine learning models on the data and will return the expected loss of the loan application as well as the probability of default, loss given default and exposure at default KPIs.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-webapp2">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Credit risk analyzer web app: results." srcset="
+               /project/1riskscoring/webapp2_hu5dd0ceaa2cac64d33ab1588d93db23ff_298794_45a8595e095c52a00806213602b375cb.webp 400w,
+               /project/1riskscoring/webapp2_hu5dd0ceaa2cac64d33ab1588d93db23ff_298794_305258642fee21bde15fba8004649695.webp 760w,
+               /project/1riskscoring/webapp2_hu5dd0ceaa2cac64d33ab1588d93db23ff_298794_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/1riskscoring/webapp2_hu5dd0ceaa2cac64d33ab1588d93db23ff_298794_45a8595e095c52a00806213602b375cb.webp"
+               width="760"
+               height="404"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Credit risk analyzer web app: results.
+    </figcaption></figure>
+</p>
+</div>
+
+    </div>
+
+    
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="https://pedrocorma.github.io/tag/machine-learning-automation-projects/">Machine Learning Automation Projects</a>
+  
+</div>
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://pedrocorma.github.io/project/1riskscoring/&amp;text=Credit%20Risk%20Scoring" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://pedrocorma.github.io/project/1riskscoring/&amp;t=Credit%20Risk%20Scoring" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Credit%20Risk%20Scoring&amp;body=https://pedrocorma.github.io/project/1riskscoring/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://pedrocorma.github.io/project/1riskscoring/&amp;title=Credit%20Risk%20Scoring" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Credit%20Risk%20Scoring%20https://pedrocorma.github.io/project/1riskscoring/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://pedrocorma.github.io"><img class="avatar mr-3 avatar-circle" src="https://pedrocorma.github.io/authors/admin/avatar_hu33981c1ec0bc1c8013f97c848274de1f_1625884_270x270_fill_lanczos_center_3.png" alt="Pedro Cortés Macías"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://pedrocorma.github.io">Pedro Cortés Macías</a></h5>
+      <h6 class="card-subtitle">Data scientist · Industrial Engineer</h6>
+      <p class="card-text">I love solving problems. More specifically, I love solving problems using code, maths and business knowledge. Using it for analysis and automation, helping people and companies to be more productive, make better decisions and create data-driven assets.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://pedrocorma.github.io/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/pedro-cortes-macias/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/pedrocorma" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="project-related-pages content-widget-hr">
+      
+      
+
+      
+      
+      
+
+      
+      
+      
+
+      
+      
+      
+    </div>
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      
+    </div>
+    
+  </div>
+
+      
+
+    
+    <script src="https://pedrocorma.github.io/js/vendor-bundle.min.e66e385e2f1df861699d60acd7a9c670.js"></script>
+
+    
+    
+    
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/python3.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+
+    
+    
+    
+    <script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+    
+    
+      <script src="https://pedrocorma.github.io/js/wowchemy-headroom.c251366b4128fd5e6b046d4c97a62a51.js" type="module"></script>
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="https://pedrocorma.github.io/en/js/wowchemy.min.ab2f2890dbe3e2e83579366d3d6e8fd9.js"></script>
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+</body>
+</html>

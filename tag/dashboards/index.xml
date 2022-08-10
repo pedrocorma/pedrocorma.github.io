@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dashboards | Pedro Cortés</title>
+    <link>https://pedrocorma.github.io/tag/dashboards/</link>
+      <atom:link href="https://pedrocorma.github.io/tag/dashboards/index.xml" rel="self" type="application/rss+xml" />
+    <description>Dashboards</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 28 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://pedrocorma.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Dashboards</title>
+      <link>https://pedrocorma.github.io/tag/dashboards/</link>
+    </image>
+    
+    <item>
+      <title>Dreem Resort Hotels Dashboard</title>
+      <link>https://pedrocorma.github.io/project/6hotels/</link>
+      <pubDate>Thu, 28 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://pedrocorma.github.io/project/6hotels/</guid>
+      <description>&lt;h2 id=&#34;table-of-contents&#34; style=&#39;text-align: left; color: #f76497;&#39;&gt;Table of contents&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#objectives&#34;&gt;Objectives&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#project-design&#34;&gt;Project design&lt;/a&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;#methodology&#34;&gt;Methodology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#requirements&#34;&gt;Taking requirements&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-sources&#34;&gt;Data sources&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#calculation&#34;&gt;Required calculations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#components&#34;&gt;Dashboard components&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#design&#34;&gt;Final Dashboard design&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div style=&#34;text-align: justify;&#34;&gt;
+&lt;p&gt;
+&lt;h2 id=&#34;introduction&#34; style=&#39;text-align: left; color: #f76497;&#39;&gt;Introduction&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;The client is a hotel group specialized in the vacation market.&lt;/p&gt;
+&lt;h2 id=&#34;objectives&#34; style=&#39;text-align: left; color: #f76497;&#39;&gt;Objectives&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;Create a dashboard that company managers can use to start managing hotels in a more data driven way. &lt;text id=&#34;tableau&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;Tableau Public&lt;/text&gt; software will be used for this purpose.&lt;/p&gt;
+&lt;h2 id=&#34;project-design&#34; style=&#39;text-align: left; color: #f76497;&#39;&gt;Project design&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;methodology&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;1. Methodology&lt;/h3&gt;
+&lt;p&gt;In order to make the best use of the time and resources available, initial time has been invested in the development of the methodology to be followed during the project.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-methodology&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Dashboard design: Methodology.&#34; srcset=&#34;
+               /project/6hotels/methodology_hu6caed30116be6939a1d9ad84816d25a7_42008_b304ef95262fd04562eef351c889f35d.webp 400w,
+               /project/6hotels/methodology_hu6caed30116be6939a1d9ad84816d25a7_42008_7251d759902e98ea10c86a19a0b7b82e.webp 760w,
+               /project/6hotels/methodology_hu6caed30116be6939a1d9ad84816d25a7_42008_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://pedrocorma.github.io/project/6hotels/methodology_hu6caed30116be6939a1d9ad84816d25a7_42008_b304ef95262fd04562eef351c889f35d.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;250&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Dashboard design: Methodology.
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;requirements&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;2. Taking requirements&lt;/h3&gt;
+&lt;p&gt;In this first fundamental step the objective is to determine the requirements and scope of the project. To do this, meetings have been organised with the end users of the dashboard to understand what they expect from the use of the dashboard, what business problems they want to solve, what KPIs they want to measure, in what time frame they want to measure them, etc.&lt;/p&gt;
+&lt;p&gt;The following is a summary of the questions posed to the management team and their corresponding answers.&lt;/p&gt;
+&lt;h4 id=&#34;quest1&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;What business objectives do you want to achieve by developing this dashboard?&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;To have in a single report the main data necessary for hotel management.&lt;/li&gt;
+&lt;li&gt;With current date and also with a view of developments in the last few months.&lt;/li&gt;
+&lt;li&gt;Get the entire management to use the same data and share the same metrics.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;quest2&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;What data specifically would you like to visualize?&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Number of reservations&lt;/li&gt;
+&lt;li&gt;Turnover&lt;/li&gt;
+&lt;li&gt;Occupancy rate&lt;/li&gt;
+&lt;li&gt;RevPar&lt;/li&gt;
+&lt;li&gt;ADR&lt;/li&gt;
+&lt;li&gt;Cancelation rate&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;quest3&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;Through which dimensions would you like to see such metrics?&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;All of the above metrics and that specific dates can be selected to consult the data.&lt;/li&gt;
+&lt;li&gt;To know the evolution of the occupancy rate for the last 6 months and its seasonality.&lt;/li&gt;
+&lt;li&gt;To know the bookings according to the customer&amp;rsquo;s country.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;quest4&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;What time frame do you need to visualize for the information?&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;The longest possible history according to the information available in the data provided.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;quest5&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;At what time unit would you like to see that information?&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;To know the value of all the mentioned metrics according to the dates to be consulted.&lt;/li&gt;
+&lt;li&gt;Evolution of the occupancy rate over the last 6 months&lt;/li&gt;
+&lt;li&gt;For the seasonality of the occupancy rate, display all available historical data.&lt;/li&gt;
+&lt;li&gt;For bookings by country, use all available data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;data-sources&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;3. Data sources&lt;/h3&gt;
+&lt;p&gt;The next stage of the project is to identify which data sources are available, where they are located, what information is available for each one, etc. In this case, the data provided by the company is contained in a single comma-separated values text file called &amp;lsquo;hotels.csv&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;This file directly contains the information of two of the metrics required by the client: the number of bookings and the ADR.&lt;/p&gt;
+&lt;h3 id=&#34;calculation&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;3. Required calculations&lt;/h3&gt;
+&lt;p&gt;In this step the requirements demanded by the customer not directly covered by the information in the data sources are identified and it is determined how to calculate them through the existing information.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-design1&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /project/6hotels/design1_hud3e9c7576d4161454658021daaaa0b64_30803_f9c006d03ab1eccf999020f0f583c7d2.webp 400w,
+               /project/6hotels/design1_hud3e9c7576d4161454658021daaaa0b64_30803_089fc507e206159b652592480cec4456.webp 760w,
+               /project/6hotels/design1_hud3e9c7576d4161454658021daaaa0b64_30803_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://pedrocorma.github.io/project/6hotels/design1_hud3e9c7576d4161454658021daaaa0b64_30803_f9c006d03ab1eccf999020f0f583c7d2.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;151&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;components&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;4. Dashboard components&lt;/h3&gt;
+&lt;p&gt;Next, the most appropriate visualizations for each metric are selected and created.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-design2&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /project/6hotels/design2_huf5daadf7eda26f6e759f93832e9daf37_33814_b3c429060f3b91eee1de8dc675a05bfe.webp 400w,
+               /project/6hotels/design2_huf5daadf7eda26f6e759f93832e9daf37_33814_deba7d090d221790bbe98cf090a1d4fc.webp 760w,
+               /project/6hotels/design2_huf5daadf7eda26f6e759f93832e9daf37_33814_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://pedrocorma.github.io/project/6hotels/design2_huf5daadf7eda26f6e759f93832e9daf37_33814_b3c429060f3b91eee1de8dc675a05bfe.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;164&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;text id=&#34;kpi&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;KPIs band &lt;/text&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-kpi_band&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /project/6hotels/kpi_band_hue013115048d16652d8d42b0998f9e460_27501_3551f30e7c37f38c7f2402f76a2f4bb0.webp 400w,
+               /project/6hotels/kpi_band_hue013115048d16652d8d42b0998f9e460_27501_80079be83a8c218b215065163ebf08d1.webp 760w,
+               /project/6hotels/kpi_band_hue013115048d16652d8d42b0998f9e460_27501_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://pedrocorma.github.io/project/6hotels/kpi_band_hue013115048d16652d8d42b0998f9e460_27501_3551f30e7c37f38c7f2402f76a2f4bb0.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;46&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;text id=&#34;ocr6m&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;Occupation rate evolution last 6 months&lt;/text&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-occupation_rate_6m&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /project/6hotels/occupation_rate_6m_hub91fbabcc9fae3d7077fd14dcb79d66f_45338_a5991c0ec23e2cb1704e8c9d77db6091.webp 400w,
+               /project/6hotels/occupation_rate_6m_hub91fbabcc9fae3d7077fd14dcb79d66f_45338_f71d121ed83c73350314ea5d6d051277.webp 760w,
+               /project/6hotels/occupation_rate_6m_hub91fbabcc9fae3d7077fd14dcb79d66f_45338_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://pedrocorma.github.io/project/6hotels/occupation_rate_6m_hub91fbabcc9fae3d7077fd14dcb79d66f_45338_a5991c0ec23e2cb1704e8c9d77db6091.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;408&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;text id=&#34;kpi&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;Seasonality of occupation rate&lt;/text&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-occupation_rate_season&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /project/6hotels/occupation_rate_season_hufa96ff0f5b5befee57e87a96f9efed14_25474_e2e9daf126b07dda4a494a88e4610a8b.webp 400w,
+               /project/6hotels/occupation_rate_season_hufa96ff0f5b5befee57e87a96f9efed14_25474_5e3fada314d639715fafd0953cd0d85d.webp 760w,
+               /project/6hotels/occupation_rate_season_hufa96ff0f5b5befee57e87a96f9efed14_25474_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://pedrocorma.github.io/project/6hotels/occupation_rate_season_hufa96ff0f5b5befee57e87a96f9efed14_25474_e2e9daf126b07dda4a494a88e4610a8b.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;412&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;text id=&#34;map&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;Client acquisition map&lt;/text&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-map_clients&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /project/6hotels/map_clients_hufcdc9fe523bf981c58bc184b33933686_161438_461502d094772f5b1f9038305e655eda.webp 400w,
+               /project/6hotels/map_clients_hufcdc9fe523bf981c58bc184b33933686_161438_57596997a1f620e375d7b16205b2fedb.webp 760w,
+               /project/6hotels/map_clients_hufcdc9fe523bf981c58bc184b33933686_161438_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://pedrocorma.github.io/project/6hotels/map_clients_hufcdc9fe523bf981c58bc184b33933686_161438_461502d094772f5b1f9038305e655eda.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;467&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;design&#34; style=&#39;text-align: left; color: #f76497; font-weight: normal;&#39;&gt;5. Final Dashboard design&lt;/h3&gt;
+Finally, the dashboard design is addressed: its size and structure, its adaptation to different devices (pc, mobile, tablet...), dashboard level filters are set, etc.
+&lt;ul&gt;
+&lt;li&gt;The developed dashboard is publicly available &lt;a href=&#34;https://public.tableau.com/views/HotelsDashboard_16589936941730/Dashboard?:language=es-ES&amp;amp;:display_count=n&amp;amp;:origin=viz_share_link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-dashboard_desktop&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Dream Resort Hotels Dashboard - Desktop version.&#34; srcset=&#34;
+               /project/6hotels/dashboard_desktop_hud85fd5bf4da95f1ebbce5528b1d92fbe_163013_b7302e5e0eb9f6394feaab642f079553.webp 400w,
+               /project/6hotels/dashboard_desktop_hud85fd5bf4da95f1ebbce5528b1d92fbe_163013_ed997aca8a340defabb697ee88842554.webp 760w,
+               /project/6hotels/dashboard_desktop_hud85fd5bf4da95f1ebbce5528b1d92fbe_163013_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://pedrocorma.github.io/project/6hotels/dashboard_desktop_hud85fd5bf4da95f1ebbce5528b1d92fbe_163013_b7302e5e0eb9f6394feaab642f079553.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;426&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Dream Resort Hotels Dashboard - Desktop version.
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-dashboard_tablet&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Dream Resort Hotels Dashboard - Tablet version.&#34; srcset=&#34;
+               /project/6hotels/dashboard_tablet_hu84ca98eca956e5c89cfeb025430cb16d_145581_1065488ab314d30084c611140328f04d.webp 400w,
+               /project/6hotels/dashboard_tablet_hu84ca98eca956e5c89cfeb025430cb16d_145581_204ea8b867c1b6dfeb64d8888e7e5468.webp 760w,
+               /project/6hotels/dashboard_tablet_hu84ca98eca956e5c89cfeb025430cb16d_145581_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://pedrocorma.github.io/project/6hotels/dashboard_tablet_hu84ca98eca956e5c89cfeb025430cb16d_145581_1065488ab314d30084c611140328f04d.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;474&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Dream Resort Hotels Dashboard - Tablet version.
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-dashboard_phone&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Dream Resort Hotels Dashboard - Phone version.&#34; srcset=&#34;
+               /project/6hotels/dashboard_phone_hua754c11fc3a515934fe61c78778fd3cd_95883_8bd240ffe1bbd98261e57c9d1477ed73.webp 400w,
+               /project/6hotels/dashboard_phone_hua754c11fc3a515934fe61c78778fd3cd_95883_3086cd39d41fe67e363c3d99536ebec6.webp 760w,
+               /project/6hotels/dashboard_phone_hua754c11fc3a515934fe61c78778fd3cd_95883_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://pedrocorma.github.io/project/6hotels/dashboard_phone_hua754c11fc3a515934fe61c78778fd3cd_95883_8bd240ffe1bbd98261e57c9d1477ed73.webp&#34;
+               width=&#34;313&#34;
+               height=&#34;760&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Dream Resort Hotels Dashboard - Phone version.
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

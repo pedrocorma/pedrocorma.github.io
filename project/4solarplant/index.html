@@ -1,0 +1,1342 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.5.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Pedro Cortés Macías" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Found the source of existing efficiency problems in two photovoltaic solar plants belonging to a renewable energy generation company by analysing data from their sensors and meters (irradiation, temperature, inverter efficiency, power...) in order to guide and optimize the efforts of the maintenance engineering team." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://pedrocorma.github.io/project/4solarplant/" />
+
+  
+  
+  
+    <meta name="theme-color" content="hsl(339, 90%, 68%)" />
+  
+
+  
+  
+    
+    <script src="https://pedrocorma.github.io/js/mathjax-config.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="https://pedrocorma.github.io/css/vendor-bundle.min.c7b8d9abd591ba2253ea42747e3ac3f5.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha512-W0xM4mr6dEP9nREo7Z9z+9X70wytKvMGeDsj7ps2+xg5QPrEBXC8tAW1IFnzjR6eoJ90JmCnFzerQJTLzIEHjA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'" disabled>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'">
+        
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://pedrocorma.github.io/css/wowchemy.37c356469c3e7b7cad46a825ebd2b0b8.css" />
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="https://pedrocorma.github.io/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="https://pedrocorma.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="https://pedrocorma.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="https://pedrocorma.github.io/project/4solarplant/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  
+  <meta property="og:site_name" content="Pedro Cortés" />
+  <meta property="og:url" content="https://pedrocorma.github.io/project/4solarplant/" />
+  <meta property="og:title" content="Inefficiency Detection in Photovoltaic Solar Plants | Pedro Cortés" />
+  <meta property="og:description" content="Found the source of existing efficiency problems in two photovoltaic solar plants belonging to a renewable energy generation company by analysing data from their sensors and meters (irradiation, temperature, inverter efficiency, power...) in order to guide and optimize the efforts of the maintenance engineering team." /><meta property="og:image" content="https://pedrocorma.github.io/project/4solarplant/featured.jpg" />
+    <meta property="twitter:image" content="https://pedrocorma.github.io/project/4solarplant/featured.jpg" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2022-02-27T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2022-02-27T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pedrocorma.github.io/project/4solarplant/"
+  },
+  "headline": "Inefficiency Detection in Photovoltaic Solar Plants",
+  
+  "image": [
+    "https://pedrocorma.github.io/project/4solarplant/featured.jpg"
+  ],
+  
+  "datePublished": "2022-02-27T00:00:00Z",
+  "dateModified": "2022-02-27T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Pedro Cortés Macías"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pedro Cortés",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pedrocorma.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "Found the source of existing efficiency problems in two photovoltaic solar plants belonging to a renewable energy generation company by analysing data from their sensors and meters (irradiation, temperature, inverter efficiency, power...) in order to guide and optimize the efforts of the maintenance engineering team."
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>Inefficiency Detection in Photovoltaic Solar Plants | Pedro Cortés</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  dark " data-wc-page-id="7d54f8133bc953fe2a30fdb1d9f33b7b" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="https://pedrocorma.github.io/js/wowchemy-init.min.6a6813e7ed475370e052267c3a688edc.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header--fixed">
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="https://pedrocorma.github.io/">Pedro Cortés</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="https://pedrocorma.github.io/">Pedro Cortés</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="https://pedrocorma.github.io/#projects"><span>Portfolio</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="https://pedrocorma.github.io/#contact"><span>Contact</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article article-project">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1>Inefficiency Detection in Photovoltaic Solar Plants</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Feb 27, 2022
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header" href="https://github.com/pedrocorma/inefficiency-detection-photovoltaic-solar-plants" target="_blank" rel="noopener">
+    <i class="fab fa-github mr-1"></i>See GitHub repository</a>
+
+
+</div>
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 400px;">
+  <div style="position: relative">
+    <img src="https://pedrocorma.github.io/project/4solarplant/featured_hua532f585c7b1faaa1625b29e5e9eb117_160768_720x2500_fit_q75_h2_lanczos.webp" width="720" height="400" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <blockquote>
+<p><em>Note: Current documentation available on the <a href="https://github.com/pedrocorma/inefficiency-detection-photovoltaic-solar-plants" target="_blank" rel="noopener">GitHub repository</a> is in Spanish. It will soon be updated to English.</em></p>
+</blockquote>
+<h2 id="table-of-contents" style='text-align: left; color: #f76497;'>Table of contents</h2>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#objectives">Objectives</a></li>
+<li><a href="#project-design">Project design</a></li>
+<li><a href="#data-quality">Data quality</a></li>
+<li><a href="#eda">Exploratory data analysis</a></li>
+<li><a href="#results-communication">Results</a></li>
+</ol>
+<h2 id="introduction" style='text-align: left; color: #f76497;'>Introduction</h2>
+<hr>
+<p>The client is a renewable energy generation company that has detected anomalous behaviors in two of its photovoltaic solar plants. Their maintenance subcontractor is unable to identify the reasons for the inefficiencies and they wish to perform an in-depth analysis of the plants&rsquo; sensor and meter data before mobilizing their engineering team.</p>
+<p><em>Notes:</em></p>
+<ul>
+<li>This article presents a technical explanation of the development process followed in the project.</li>
+<li>Source code can be found <a href="https://github.com/pedrocorma/inefficiency-detection-photovoltaic-solar-plants" target="_blank" rel="noopener">here</a>.</li>
+</ul>
+<h2 id="objectives" style='text-align: left; color: #f76497;'>Objectives</h2>
+<hr>
+<p>Analyse the available data to try to figure out where the problems may be and whether or not it is necessary to send a engineering team to the plants.</p>
+<h2 id="project-design" style='text-align: left; color: #f76497;'>Project design</h2>
+<hr>
+<h3 id="business-model" style='text-align: left; color: #f76497; font-weight: normal;'>Understanding the operation of a photovoltaic solar plant</h3>
+<p>In order to identify the business levers on which to focus the analysis, it is necessary to understand the basic operation of a photovoltaic solar plant.</p>
+<p>Photovoltaic solar plants directly convert solar energy into electricity. They work on the principle of the photovoltaic effect. When certain materials are exposed to light, they absorb photons and release free electrons. This phenomenon is called as the photoelectric effect, wich is a method of producing direct current electricity based on the principle of the photoelectric effect.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-pv_solar_plant">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Photovoltaic solar plant scheme." srcset="
+               /project/4solarplant/pv_solar_plant_hu2c0a345ff52735e8ea760241b72c3152_11261_6c0e1b4d8091e17a75a69d08850dc618.webp 400w,
+               /project/4solarplant/pv_solar_plant_hu2c0a345ff52735e8ea760241b72c3152_11261_698fe16f0a23fa9b4e431fcd03bc8513.webp 760w,
+               /project/4solarplant/pv_solar_plant_hu2c0a345ff52735e8ea760241b72c3152_11261_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/4solarplant/pv_solar_plant_hu2c0a345ff52735e8ea760241b72c3152_11261_6c0e1b4d8091e17a75a69d08850dc618.webp"
+               width="542"
+               height="238"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Photovoltaic solar plant scheme.
+    </figcaption></figure>
+<p>Based on the principle of photovoltaic effect, solar cells or photovoltaic cells are made. They convert sunlight into direct current (DC) electricity. But, a single photovoltaic cell does not produce enough amount of electricity. Therefore, a number of photovoltaic cells are mounted on a supporting frame and are electrically connected to each other to form a photovoltaic module or solar panel. According to the requirement of power, multiple photovoltaic modules are electrically connected together to form a PV array and to achieve more power.</p>
+<p>The generated DC electricity is then converted to alternating current (AC) which is cheaper and easier to transport and is the type of electrical current used when you plug appliances into normal wall sockets. This transformation process is accomplished by means of a device called inverter.</p>
+<p>On the other hand, within the plant ecosystem there are also power meters (for measuring both DC and AC current) and sensors of different types (temperature, irradiation, &hellip;).</p>
+<p>Finally, the AC current is transported to the different consumers through the distribution network.</p>
+<h3 id="business-model" style='text-align: left; color: #f76497; font-weight: normal;'>Levers</h3>
+<p>Once the fundamentals of the operation of a PV solar plant have been analised, the levers that influence the business objective (in this case generating AC) have been identified:</p>
+<ol>
+<li><text id="lever1" style='text-align: left; color: #f76497; font-weight: normal;'>Solar irradiation:</text> the higher the irradiation, the higher the DC generated. However, it is not monotonic; above certain values, higher temperatures decrease the generation capacity.</li>
+<li><text id="lever2" style='text-align: left; color: #f76497; font-weight: normal;'>Panels conditions:</text> panels have to be clean and in proper working conditions in order to generate as much DC as possible.</li>
+<li><text id="lever3" style='text-align: left; color: #f76497; font-weight: normal;'>Inverters efficiency:</text>  there is always a loss in the transformation from DC to AC, but it should be the minimum possible. Inverters have also to be in good conditions.</li>
+<li><text id="lever4" style='text-align: left; color: #f76497; font-weight: normal;'>Meters and sensors:</text> if they break down and/or do not measure properly, traceability and the possibility of detecting faults is lost.</li>
+</ol>
+<h3 id="kpis" style='text-align: left; color: #f76497; font-weight: normal;'>KPIs</h3>
+<ol>
+<li><text id="lever1" style='text-align: left; color: #f76497; font-weight: normal;'>Solar irradiation:</text> measures incoming solar energy.</li>
+<li><text id="lever1" style='text-align: left; color: #f76497; font-weight: normal;'>Ambient and panel temperature:</text> measured by the plant&rsquo;s sensors in degrees Celsius.</li>
+<li><text id="lever1" style='text-align: left; color: #f76497; font-weight: normal;'>DC power:</text> measures the generated kW of direct current.</li>
+<li><text id="lever1" style='text-align: left; color: #f76497; font-weight: normal;'>AC power:</text> measures the generated kW  of alternating current.</li>
+<li><text id="lever1" style='text-align: left; color: #f76497; font-weight: normal;'>Inverter efficiency:</text> measures the transformation capacity from DC to AC. It is calculated as $\dfrac{AC}{DC} \cdot 100$.</li>
+</ol>
+<h3 id="entities-and-data" style='text-align: left; color: #f76497; font-weight: normal;'>Entities and data</h3>
+<p>To determine the entities it is necessary to know what a solar plant is composed of:</p>
+<ul>
+<li>The minimum unit is the cell, where the generation of energy by reaction with the sun&rsquo;s photons takes place.</li>
+<li>Cells are encapsulated in &lsquo;rectangles&rsquo; called modules.</li>
+<li>Several modules form a panel.</li>
+<li>Panels are arranged in rows called arrays.</li>
+<li>An inverter receives direct current from several arrays.</li>
+<li>A plant can have several inverters.</li>
+<li>There are also meters and sensors.</li>
+</ul>
+<p>In the present project the existing entities in the granularity of the data provided by the company are:</p>
+<ul>
+<li>Data in 15-minute windows over a period of 34 days.</li>
+<li>Solar photovoltaic plants: two of them.</li>
+<li>Inverters: several per plant.</li>
+<li>A single irradiance sensor per plant.</li>
+<li>A single ambient temperature sensor per plant.</li>
+<li>A single module temperature sensor per plant.</li>
+</ul>
+<p>This information will condition the analyses that can be carried out. For example, it will be possible to determine if an inverter in a plant is underperforming, but it will not be possible to determine which array, panel or module may be causing these inefficiencies.</p>
+<h2 id="data-quality" style='text-align: left; color: #f76497;'>Data quality</h2>
+<hr>
+<p>In this stage of the project, general data quality correction processes have been applied, such as:</p>
+<ul>
+<li>Feature renaming</li>
+<li>Feature type correction</li>
+<li>Elimination of features with unique values</li>
+<li>Nulls imputation</li>
+<li>Outliers management</li>
+<li>&hellip;</li>
+</ul>
+<p>The entire process can be consulted in detail <a href="https://github.com/pedrocorma/inefficiency-detection-photovoltaic-solar-plants/blob/main/Notebooks/02_Calidad%20de%20datos%20y%20creacion%20datamart%20analitico.ipynb" target="_blank" rel="noopener">here</a>.</p>
+<h2 id="eda" style='text-align: left; color: #f76497;'>Exploratory data analysis</h2>
+<hr>
+<p>The aim of this stage of the project is to discover trends, patterns, and to check assumptions with the help of statistical summary and graphical representations. Complete analysis can be found <a href="https://github.com/pedrocorma/inefficiency-detection-photovoltaic-solar-plants/blob/main/Notebooks/04_Analisis%20e%20Insights.ipynb" target="_blank" rel="noopener">here</a>.</p>
+<p>Once the business levers, kpis and entities have been established, a number of seed questions are posed to serve as a basis for developing and deepening the analysis of the different features.</p>
+<h3 id="seed_questions" style='text-align: left; color: #f76497; font-weight: normal;'>Seed questions</h3>
+<p><strong>Regarding solar irradiation:</strong></p>
+<ul>
+<li><text id="q1" style='text-align: left; color: #f76497; font-weight: normal;'>Q1:</text> Is there enough solar irradiation every day?</li>
+<li><text id="q2" style='text-align: left; color: #f76497; font-weight: normal;'>Q2:</text> Does a similar amount of solar irradiation reach both plants?</li>
+<li><text id="q3" style='text-align: left; color: #f76497; font-weight: normal;'>Q3:</text> What is the hourly distribution of solar irradiation like?</li>
+<li><text id="q4" style='text-align: left; color: #f76497; font-weight: normal;'>Q4:</text> How is the received solar irradiation related to the ambient temperature and the module temperature?</li>
+</ul>
+<p><strong>Regarding photovoltaic solar plants:</strong></p>
+<ul>
+<li><text id="q5" style='text-align: left; color: #f76497; font-weight: normal;'>Q5:</text> Do they receive the same amount of irradiation?</li>
+<li><text id="q6" style='text-align: left; color: #f76497; font-weight: normal;'>Q6:</text> Do they have a similar number of inverters?</li>
+<li><text id="q7" style='text-align: left; color: #f76497; font-weight: normal;'>Q7:</text> Do they generate similar amount of DC?</li>
+<li><text id="q8" style='text-align: left; color: #f76497; font-weight: normal;'>Q8:</text> Do they generate similar amount of AC?</li>
+</ul>
+<p><strong>Regarding DC generation:</strong></p>
+<ul>
+<li><text id="q9" style='text-align: left; color: #f76497; font-weight: normal;'>Q9:</text> What is the relationship between solar irradiation and DC generation?</li>
+<li><text id="q10" style='text-align: left; color: #f76497; font-weight: normal;'>Q10:</text> Is DC generation affected at any time by ambient or module temperature?</li>
+<li><text id="q11" style='text-align: left; color: #f76497; font-weight: normal;'>Q11:</text> Is it similar in both plants?</li>
+<li><text id="q12" style='text-align: left; color: #f76497; font-weight: normal;'>Q12:</text> How is it distributed throughout the day?</li>
+<li><text id="q13" style='text-align: left; color: #f76497; font-weight: normal;'>Q13:</text> Is it constant throughout the days?</li>
+<li><text id="q14" style='text-align: left; color: #f76497; font-weight: normal;'>Q14:</text> Is it constant across all inverters?</li>
+<li><text id="q15" style='text-align: left; color: #f76497; font-weight: normal;'>Q15:</text> Have there been times of failure?</li>
+</ul>
+<p><strong>Regarding AC generation:</strong></p>
+<ul>
+<li><text id="q16" style='text-align: left; color: #f76497; font-weight: normal;'>Q16:</text> What is the relationship between DC and AC generation?</li>
+<li><text id="q17" style='text-align: left; color: #f76497; font-weight: normal;'>Q17:</text> Is it similar in both plants?</li>
+<li><text id="q18" style='text-align: left; color: #f76497; font-weight: normal;'>Q18:</text> How is it distributed throughout the day?</li>
+<li><text id="q19" style='text-align: left; color: #f76497; font-weight: normal;'>Q19:</text> Is it constant throughout the days?</li>
+<li><text id="q20" style='text-align: left; color: #f76497; font-weight: normal;'>Q20:</text> Is it constant across all inverters?</li>
+<li><text id="q21" style='text-align: left; color: #f76497; font-weight: normal;'>Q21:</text> Have there been times of failure?</li>
+</ul>
+<p><strong>Regarding meters and sensors:</strong></p>
+<ul>
+<li><text id="q22" style='text-align: left; color: #f76497; font-weight: normal;'>Q22:</text> Are solar irradiation data reliable?</li>
+<li><text id="q23" style='text-align: left; color: #f76497; font-weight: normal;'>Q23:</text> Are temperature data reliable?</li>
+<li><text id="q24" style='text-align: left; color: #f76497; font-weight: normal;'>Q24:</text> Are DC generation data reliable?</li>
+<li><text id="q25" style='text-align: left; color: #f76497; font-weight: normal;'>Q25:</text> Are AC generation data reliable?</li>
+<li><text id="q26" style='text-align: left; color: #f76497; font-weight: normal;'>Q26:</text> Are the data between the two plants similar?</li>
+</ul>
+<p>Example of some of the analyses that have been conducted:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-irradiation_temperatures">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Relationships between solar irradiation, ambient temperature and module temperature segmented by solar plant." srcset="
+               /project/4solarplant/irradiation_temperatures_hu8ee3a84d23536af375cdaca243e9be26_230250_3ca5ed354d913da9821c516b26ce1789.webp 400w,
+               /project/4solarplant/irradiation_temperatures_hu8ee3a84d23536af375cdaca243e9be26_230250_76b8c9e037f5b11926d2e56387ef4d73.webp 760w,
+               /project/4solarplant/irradiation_temperatures_hu8ee3a84d23536af375cdaca243e9be26_230250_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/4solarplant/irradiation_temperatures_hu8ee3a84d23536af375cdaca243e9be26_230250_3ca5ed354d913da9821c516b26ce1789.webp"
+               width="692"
+               height="639"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Relationships between solar irradiation, ambient temperature and module temperature segmented by solar plant.
+    </figcaption></figure></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-heatmap">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Hourly distribution of solar irradiation and ambient temperature for each plant. Both plants have similar patterns. There is irradiation, and therefore the plants should produce energy, between 7 a.m and 5 p.m. The maximum irradiation occurs between 11 and 12 a.m." srcset="
+               /project/4solarplant/heatmap_hu5784f33b022fee5e79aace3b35046cac_58831_9de02557cd0574334ddcc5fb5c6f6271.webp 400w,
+               /project/4solarplant/heatmap_hu5784f33b022fee5e79aace3b35046cac_58831_669f8300a9279920a0e4d5eca19c37ef.webp 760w,
+               /project/4solarplant/heatmap_hu5784f33b022fee5e79aace3b35046cac_58831_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/4solarplant/heatmap_hu5784f33b022fee5e79aace3b35046cac_58831_9de02557cd0574334ddcc5fb5c6f6271.webp"
+               width="760"
+               height="396"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Hourly distribution of solar irradiation and ambient temperature for each plant. Both plants have similar patterns. There is irradiation, and therefore the plants should produce energy, between 7 a.m and 5 p.m. The maximum irradiation occurs between 11 and 12 a.m.
+    </figcaption></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-p1p2">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Hourly distribution of AC-DC conversion efficiency and kW generated by hour. Plant 1 has a very low DC to AC conversion efficiency, suggesting problems with its inverters." srcset="
+               /project/4solarplant/p1p2_hu7752e9d34ff22c8dfa90c1cece2f8a39_51735_e4d7ccbfd042154aac8c13aafaab8e21.webp 400w,
+               /project/4solarplant/p1p2_hu7752e9d34ff22c8dfa90c1cece2f8a39_51735_90f789bffaa30f4c2512f67df011733a.webp 760w,
+               /project/4solarplant/p1p2_hu7752e9d34ff22c8dfa90c1cece2f8a39_51735_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="https://pedrocorma.github.io/project/4solarplant/p1p2_hu7752e9d34ff22c8dfa90c1cece2f8a39_51735_e4d7ccbfd042154aac8c13aafaab8e21.webp"
+               width="760"
+               height="212"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Hourly distribution of AC-DC conversion efficiency and kW generated by hour. Plant 1 has a very low DC to AC conversion efficiency, suggesting problems with its inverters.
+    </figcaption></figure>
+<h2 id="results-communication" style='text-align: left; color: #f76497;'>Results</h2>
+<hr>
+<h3 id="insights" style='text-align: left; color: #f76497; font-weight: normal;'>Insights</h3>
+<p>After a detailed analysis of the data from the photovoltaic solar plants it can be concluded that:</p>
+<ol>
+<li>
+<p>There are serious data quality problems. The part of the chain where these problems are generated, including the plant meters, should be reviewed.</p>
+</li>
+<li>
+<p>The fact that the DC generation is about 10 times higher in plant 1 than in plant 2, added to the fact that the efficiency in plant 1 is above 10% leads to think that the DC generation data in plant 1 may be artificially scaled for some reason.</p>
+</li>
+</ol>
+<p>In the absence of further necessary checks, and assuming that the data are correct:</p>
+<ol start="3">
+<li>Both plants have received high amounts of irradiation, no problems have been located at this stage.</li>
+<li>Although the ambient temperature is higher in Plant 2 and its modules are warmer than those of Plant 1, this does not seem to have a significant impact.</li>
+<li>Plant 1&rsquo;s DC generation works properly, the modules seem to bring DC to the inverters.</li>
+<li>Plant 2&rsquo;s DC generation does not work properly, some modules deliver very limited DC to the inverters even during peak irradiance hours.</li>
+<li>DC to AC conversion of Plant 1 does not work well, it only transforms around 10% consistently. And this low efficiency is not due to moments of non-reception of DC nor is it concentrated in specific inverters, but it seems to be more structural (note that it could be due to data quality problems in the data regarding DC generation of Plant 1).</li>
+<li>DC to AC conversion of plant 2 works properly, reaching efficiency levels up to 97%.</li>
+</ol>
+<h3 id="actions" style='text-align: left; color: #f76497; font-weight: normal;'>Recommended actions</h3>
+<ol>
+<li>Review data collection processes and their reliability.</li>
+<li>Perform a maintenance inspection on the identified inverters of Plant 2 in which there are many moments of zero DC generation.</li>
+<li>Perform a maintenance inspection of all inverters of the Plant 1.</li>
+</ol>
+<div style="text-align: justify;">
+<p>
+</div>
+</p>
+
+    </div>
+
+    
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="https://pedrocorma.github.io/tag/discovery-projects/">Discovery Projects</a>
+  
+</div>
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://pedrocorma.github.io/project/4solarplant/&amp;text=Inefficiency%20Detection%20in%20Photovoltaic%20Solar%20Plants" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://pedrocorma.github.io/project/4solarplant/&amp;t=Inefficiency%20Detection%20in%20Photovoltaic%20Solar%20Plants" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Inefficiency%20Detection%20in%20Photovoltaic%20Solar%20Plants&amp;body=https://pedrocorma.github.io/project/4solarplant/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://pedrocorma.github.io/project/4solarplant/&amp;title=Inefficiency%20Detection%20in%20Photovoltaic%20Solar%20Plants" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Inefficiency%20Detection%20in%20Photovoltaic%20Solar%20Plants%20https://pedrocorma.github.io/project/4solarplant/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://pedrocorma.github.io"><img class="avatar mr-3 avatar-circle" src="https://pedrocorma.github.io/authors/admin/avatar_hu33981c1ec0bc1c8013f97c848274de1f_1625884_270x270_fill_lanczos_center_3.png" alt="Pedro Cortés Macías"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://pedrocorma.github.io">Pedro Cortés Macías</a></h5>
+      <h6 class="card-subtitle">Data scientist · Industrial Engineer</h6>
+      <p class="card-text">I love solving problems. More specifically, I love solving problems using code, maths and business knowledge. Using it for analysis and automation, helping people and companies to be more productive, make better decisions and create data-driven assets.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://pedrocorma.github.io/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/pedro-cortes-macias/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/pedrocorma" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="project-related-pages content-widget-hr">
+      
+      
+
+      
+      
+      
+
+      
+      
+      
+
+      
+      
+      
+    </div>
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      
+    </div>
+    
+  </div>
+
+      
+
+    
+    <script src="https://pedrocorma.github.io/js/vendor-bundle.min.e66e385e2f1df861699d60acd7a9c670.js"></script>
+
+    
+    
+    
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/python3.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+
+    
+    
+    
+    <script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+    
+    
+      <script src="https://pedrocorma.github.io/js/wowchemy-headroom.c251366b4128fd5e6b046d4c97a62a51.js" type="module"></script>
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="https://pedrocorma.github.io/en/js/wowchemy.min.ab2f2890dbe3e2e83579366d3d6e8fd9.js"></script>
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+</body>
+</html>
